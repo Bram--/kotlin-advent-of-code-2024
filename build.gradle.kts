@@ -1,15 +1,35 @@
 plugins {
-    kotlin("jvm") version "2.1.0"
+  kotlin("jvm") version "2.1.0"
+
+  id("com.ncorti.ktfmt.gradle") version "0.21.0"
 }
 
-sourceSets {
-    main {
-        kotlin.srcDir("src")
-    }
+dependencies {
+  // Use Google's Truth for asseertions
+  testImplementation("com.google.truth:truth:1.4.4")
+
+  // Junit 5
+  testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.1")
+  testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.8.1")
 }
+
+ktfmt {
+  // Google style - 2 space indentation & automatically adds/removes trailing commas
+  googleStyle()
+
+  // Automatically removes any unused imports.
+  removeUnusedImports.set(true)
+}
+
 
 tasks {
-    wrapper {
-        gradleVersion = "8.11.1"
-    }
+  wrapper { gradleVersion = "8.11.1" }
+
+  test { useJUnitPlatform() }
+}
+
+task("HistorianHysteria", JavaExec::class) {
+  group = "advents"
+  mainClass = "advent.days.day1.HistorianHysteria"
+  classpath = sourceSets["main"].runtimeClasspath
 }
