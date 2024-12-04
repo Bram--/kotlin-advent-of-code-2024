@@ -39,29 +39,30 @@ private constructor(private val left: List<Int>, private val right: List<Int>) {
    * it by the number of times that number appears in the right list.
    */
   fun calculateSimilarityScore() =
-      left.sumOf { location -> location * right.count { it == location } }
+    left.sumOf { location -> location * right.count { it == location } }
 
   companion object {
     @JvmStatic
     fun main(args: Array<String>) {
       fromResource("day1/historian-hysteria.txt").apply {
         println(
-            """
+          """
           Historian Hysteria - using `resources/day1/historian-hysteria.txt
           
           Calculated Distance: ${calculateDistance()}
           Calculated Similarity Score: ${calculateSimilarityScore()}
         """
-                .trimIndent())
+            .trimIndent()
+        )
       }
     }
 
     /** Returns a [HistorianHysteria] from a resource path. */
     fun fromResource(path: String): HistorianHysteria =
-        readResourceAsStringList(path)!!.let { lines ->
-          val values = inputsToSortedLists(lines)
-          return HistorianHysteria(values.first, values.second)
-        }
+      readResourceAsStringList(path)!!.let { lines ->
+        val values = inputsToSortedLists(lines)
+        return HistorianHysteria(values.first, values.second)
+      }
 
     /**
      * Given a list of strings - in the format below - returns a [Pair] containing a [List] of all
@@ -77,22 +78,22 @@ private constructor(private val left: List<Int>, private val right: List<Int>) {
      * ```
      */
     internal fun inputsToSortedLists(stringList: List<String>): Pair<List<Int>, List<Int>> =
-        stringList
-            .fold(Pair(mutableListOf<Int>(), mutableListOf<Int>())) { accumulator, value ->
-              // Splits the line into two segments assuming the format "\d+[\s]+\d+".
-              val parts = value.split(Regex("\\s+"))
-              require(parts.size == 2) { "Lists have different lengths" }
+      stringList
+        .fold(Pair(mutableListOf<Int>(), mutableListOf<Int>())) { accumulator, value ->
+          // Splits the line into two segments assuming the format "\d+[\s]+\d+".
+          val parts = value.split(Regex("\\s+"))
+          require(parts.size == 2) { "Lists have different lengths" }
 
-              // Adds both values to the appropriate lists.
-              val (left, right) = parts.map { it.toInt() }
-              accumulator.apply {
-                first.add(left)
-                second.add(right)
-              }
-            }
-            .let {
-              // Sorts the lists and ensures a stable list is returned.
-              Pair(it.first.sorted(), it.second.sorted())
-            }
+          // Adds both values to the appropriate lists.
+          val (left, right) = parts.map { it.toInt() }
+          accumulator.apply {
+            first.add(left)
+            second.add(right)
+          }
+        }
+        .let {
+          // Sorts the lists and ensures a stable list is returned.
+          Pair(it.first.sorted(), it.second.sorted())
+        }
   }
 }

@@ -37,7 +37,6 @@ class HistorianHysteriaTest {
     assertThat(subject.calculateSimilarityScore()).isEqualTo(0)
   }
 
-
   @Nested
   inner class InputsToSortedLists {
     @Test

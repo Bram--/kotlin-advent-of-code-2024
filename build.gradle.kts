@@ -28,8 +28,16 @@ tasks {
   test { useJUnitPlatform() }
 }
 
+// Day 1
 task("HistorianHysteria", JavaExec::class) {
   group = "advents"
   mainClass = "advent.days.day1.HistorianHysteria"
+  classpath = sourceSets["main"].runtimeClasspath
+}
+
+// Day 2
+task("RedNoseReports", JavaExec::class) {
+  group = "advents"
+  mainClass = "advent.days.day2.RedNoseReports"
   classpath = sourceSets["main"].runtimeClasspath
 }
