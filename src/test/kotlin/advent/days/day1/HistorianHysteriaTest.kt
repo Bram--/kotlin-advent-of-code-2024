@@ -17,8 +17,26 @@ class HistorianHysteriaTest {
   fun `calculate Distances`() {
     val subject = HistorianHysteria.fromResource("day1/historian-hysteria-valid.txt")
 
-    assertThat(subject.calculateDistance()).isEqualTo(895)
+    assertThat(subject.calculateDistance()).isEqualTo(896)
   }
+
+  @Test
+  fun `calculate similarity - equal lists`() {
+    val subject = HistorianHysteria.fromResource("day1/historian-hysteria-equal.txt")
+
+    // If the lists are equal the similarity should be equal to the sum of one list
+    // 100 + 202 + 300 + 499 = 1101
+    assertThat(subject.calculateSimilarityScore()).isEqualTo(1_101)
+  }
+
+  @Test
+  fun `calculate similarity - distinct lists`() {
+    val subject = HistorianHysteria.fromResource("day1/historian-hysteria-valid.txt")
+
+    // If the lists are entirely distinct the similarity should be 0 since: `n * 0 = 0`.
+    assertThat(subject.calculateSimilarityScore()).isEqualTo(0)
+  }
+
 
   @Nested
   inner class InputsToSortedLists {
