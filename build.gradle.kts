@@ -41,3 +41,17 @@ task("RedNoseReports", JavaExec::class) {
   mainClass = "advent.days.day2.RedNoseReports"
   classpath = sourceSets["main"].runtimeClasspath
 }
+
+// Day 3
+task("MullItOver", JavaExec::class) {
+  group = "advents"
+  mainClass = "advent.days.day3.MullItOver"
+  classpath = sourceSets["main"].runtimeClasspath
+}
+
+// Day 4
+task("CeresSearch", JavaExec::class) {
+  group = "advents"
+  mainClass = "advent.days.day4.CeresSearch"
+  classpath = sourceSets["main"].runtimeClasspath
+}

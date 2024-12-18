@@ -39,44 +39,45 @@ class MullItOver private constructor(private val numbers: List<Pair<Int, Int>>) 
     fun main(args: Array<String>) {
       fromResource("day3/input.txt", ignoreDisabled = false).apply {
         println(
-            """
+          """
           Mull it over - using `resources/day3/input.txt
           
           Correct memory is summed as: ${sum()}.
         """
-                .trimIndent())
+            .trimIndent()
+        )
       }
     }
 
     /** Returns a [MullItOver] from a resource path. */
     fun fromResource(path: String, ignoreDisabled: Boolean = true): MullItOver =
-        readResourceAsStringList(path)!!.let { lines ->
-          return MullItOver(extractMulInstructions(lines.joinToString(), ignoreDisabled))
-        }
+      readResourceAsStringList(path)!!.let { lines ->
+        return MullItOver(extractMulInstructions(lines.joinToString(), ignoreDisabled))
+      }
 
     private const val MUL_PATTERN = "mul\\((\\d{1,3})[\\s]*,[\\s]*(\\d{1,3})\\)"
     private const val DO_DONT_PATTERN = "(?:do|don't)\\(\\)"
 
     fun extractMulInstructions(
-        instructionString: String,
-        ignoreDisabled: Boolean = true
+      instructionString: String,
+      ignoreDisabled: Boolean = true,
     ): List<Pair<Int, Int>> {
       val instructions = Regex("$MUL_PATTERN|$DO_DONT_PATTERN").findAll(instructionString)
       var lastInstruction = "do()"
 
       return instructions
-          .fold(mutableListOf<Pair<Int, Int>>()) { acc, instruction ->
-            val match = instruction.value
-            if (match == "do()" || match == "don't()") {
-              if (!ignoreDisabled) lastInstruction = instruction.value
-            } else if (lastInstruction == "do()") {
-              val values = instruction.groupValues.subList(1, 3).map { it.toInt() }
-              acc.add(Pair(values[0], values[1]))
-            }
-
-            acc
+        .fold(mutableListOf<Pair<Int, Int>>()) { acc, instruction ->
+          val match = instruction.value
+          if (match == "do()" || match == "don't()") {
+            if (!ignoreDisabled) lastInstruction = instruction.value
+          } else if (lastInstruction == "do()") {
+            val values = instruction.groupValues.subList(1, 3).map { it.toInt() }
+            acc.add(Pair(values[0], values[1]))
           }
-          .toList()
+
+          acc
+        }
+        .toList()
     }
   }
 }
