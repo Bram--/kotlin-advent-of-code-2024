@@ -109,13 +109,12 @@ class PrintQueueTest {
       // [3, 4, 1] => [1, 3, 4] = 3
       assertThat(subject.reorderAndSumIncorrectlyOrderedUpdates()).isEqualTo(5)
     }
-  }
 
-  @Test
-  fun `reorders multiple updates for multiple rules containing all numbers used`() {
-    val subject =
-      PrintQueue.fromString(
-        """
+    @Test
+    fun `reorders multiple updates for multiple rules containing all numbers used`() {
+      val subject =
+        PrintQueue.fromString(
+          """
           1|2
           1|3
           1|4
@@ -132,10 +131,11 @@ class PrintQueueTest {
           1,5,2,3,4
           2,5,3,4,1
         """
-          .trimIndent()
-          .split("\n")
-      )
+            .trimIndent()
+            .split("\n")
+        )
 
-    assertThat(subject.reorderAndSumIncorrectlyOrderedUpdates()).isEqualTo(12)
+      assertThat(subject.reorderAndSumIncorrectlyOrderedUpdates()).isEqualTo(12)
+    }
   }
 }
