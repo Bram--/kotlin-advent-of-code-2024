@@ -168,29 +168,32 @@ class CeresSearchTest {
 
     @Test
     fun `Find Crossed masses`() {
-      val subject = CeresSearch.forString(
-        """
+      val subject =
+        CeresSearch.forString(
+          """
           M.M
           .A.
           S.S
-        """.trimIndent()
-      )
+        """
+            .trimIndent()
+        )
 
       assertThat(subject.countCrossedMas()).isEqualTo(1)
     }
 
     @Test
     fun `Find Crossed masses in uneven matrix`() {
-      val subject = CeresSearch.forString(
-        """
+      val subject =
+        CeresSearch.forString(
+          """
           M.M
           .A.A
           S.S.S
-        """.trimIndent()
-      )
+        """
+            .trimIndent()
+        )
 
       assertThat(subject.countCrossedMas()).isEqualTo(1)
     }
   }
-
 }
