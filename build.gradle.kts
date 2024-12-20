@@ -55,3 +55,10 @@ task("CeresSearch", JavaExec::class) {
   mainClass = "advent.days.day4.CeresSearch"
   classpath = sourceSets["main"].runtimeClasspath
 }
+
+// Day 5
+task("PrintQueue", JavaExec::class) {
+  group = "advents"
+  mainClass = "advent.days.day5.PrintQueue"
+  classpath = sourceSets["main"].runtimeClasspath
+}
