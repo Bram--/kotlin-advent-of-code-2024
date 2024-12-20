@@ -62,3 +62,10 @@ task("PrintQueue", JavaExec::class) {
   mainClass = "advent.days.day5.PrintQueue"
   classpath = sourceSets["main"].runtimeClasspath
 }
+
+// Day 6
+task("GuardGallivant", JavaExec::class) {
+  group = "advents"
+  mainClass = "advent.days.day6.GuardGallivant"
+  classpath = sourceSets["main"].runtimeClasspath
+}

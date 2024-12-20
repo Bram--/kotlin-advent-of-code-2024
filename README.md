@@ -1,25 +1,42 @@
 # kotlin-advent-of-code-2024
 
-Welcome to the Advent of Code[^aoc] Kotlin project created by [bram--][github] using the [Advent of Code Kotlin Template][template] delivered by JetBrains.
+Test driven solutions to https://adventofcode.com/2024.
 
-In this repository, bram-- is about to provide solutions for the puzzles using [Kotlin][kotlin] language.
-
-If you're stuck with Kotlin-specific questions or anything related to this template, check out the following resources:
-
-- [Kotlin docs][docs]
-- [Kotlin Slack][slack]
-- Template [issue tracker][issues]
-
-
-[^aoc]:
-    [Advent of Code][aoc] – An annual event of Christmas-oriented programming challenges started December 2015.
-    Every year since then, beginning on the first day of December, a programming puzzle is published every day for twenty-five days.
-    You can solve the puzzle and provide an answer using the language of your choice.
+                                    .!,            .!,
+                                   ~ 6 ~          ~ 6 ~
+                              .    ' i `  .-^-.   ' i `
+                            _.|,_   | |  / .-. \   | |
+                             '|`   .|_|.| (-` ) | .|_|.
+                             / \ ___)_(_|__`-'__|__)_(______
+                            /`,o\)_______________________o_(
+                           /_* ~_\[___]___[___]___[___[_[\`-.
+                           / o .'\[_]___[___]___[___]_[___)`-)
+                          /_,~' *_\_]                 [_[(  (
+                          /`. *  *\_]                 [___\ _\
+                         /   `~. o \]      ;( ( ;     [_[_]`-'
+                        /_ *    `~,_\    (( )( ;(;    [___]
+                        /   o  *  ~'\   /\ /\ /\ /\   [_[_]
+                       / *    .~~'  o\  ||_||_||_||   [___]
+                      /_,.~~'`    *  _\_||_||_||_||___[_[_]_
+                      /`~..  o        \:::::::::::::::::::::\
+                     / *   `'~..   *   \:::::::::::::::::::::\
+                    /_     o    ``~~.,,_\=========\_/========='
+                    /  *      *     ..~'\         _|_ .-_--.
+                   /*    o   _..~~`'*   o\           ( (_)  )
+                   `-.__.~'`'   *   ___.-'            `----'
+                         ":-------:"
+                      hjw  \_____/
 
 [aoc]: https://adventofcode.com
+
 [docs]: https://kotlinlang.org/docs/home.html
+
 [github]: https://github.com/bram--
+
 [issues]: https://github.com/kotlin-hands-on/advent-of-code-kotlin-template/issues
+
 [kotlin]: https://kotlinlang.org
+
 [slack]: https://surveys.jetbrains.com/s3/kotlin-slack-sign-up
+
 [template]: https://github.com/kotlin-hands-on/advent-of-code-kotlin-template
